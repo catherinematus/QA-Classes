@@ -1,2 +1,2 @@
 # mocha-ts-unit-testing
-Mocha-Typecript Unit Testing Framework
+Mocha-Typescript Unit Testing Framework

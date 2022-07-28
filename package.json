@@ -1,7 +1,7 @@
 {
   "name": "mocha-ts-unit-testing",
   "version": "1.0.0",
-  "description": "Mocha-Typecript Unit Testing Framework",
+  "description": "Mocha-Typescript Unit Testing Framework",
   "main": "spec.ts",
   "scripts": {
     "test": "npx ts-node ./src/cleaner.ts && mocha -r ts-node/register -R allure-mocha",
@@ -19,7 +19,6 @@
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "allure-commandline": "^2.18.1",
-    "allure-js-commons": "^2.0.0-beta.18",
     "allure-mocha": "^2.0.0-beta.18",
     "assert": "^2.0.0",
     "eslint": "^8.20.0",
