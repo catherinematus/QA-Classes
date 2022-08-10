@@ -40,7 +40,7 @@ describe("Strings sorter tests", () => {
   before(() => {
     sorter = new Sorter;
   });
-  
+
   it("Should sort strings alphabetically", () => {
     const result = sorter.stringsHandler(["abc", "cba", "block"]);
     expect(result).to.have.lengthOf(3);
