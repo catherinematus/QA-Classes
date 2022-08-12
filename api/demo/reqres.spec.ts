@@ -1,7 +1,8 @@
-import superagent from "superagent";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import superagent, { Response } from "superagent";
 
 const baseUrl = "https://reqres.in/api";
-let response: any;
+let response: Response;
 
 describe("Test HTTP methods", () => {
   test("Should correctly read GET response", async () => {
@@ -27,14 +28,14 @@ describe("Test HTTP methods", () => {
 
   test("Should correctly read POST response with a body", async () => {
     try {
-      response = await superagent.get(`${baseUrl}/users`)
+      response = await superagent.post(`${baseUrl}/users`)
         .set("Content-Type", "application/json")
         .send({ name: "Vlad", job: "teacher" });
     } catch (err: any) {
       throw new Error(err.message);
     }
 
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(201);
   });
 
   test("Should correctly read POST response with 400 status code", async () => {

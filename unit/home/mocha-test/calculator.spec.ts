@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { Calculator } from "../src/calculator";
 
 const ASSERTION_ERROR_MESSAGE = "Result of calculation is not as expected";
-const calculator = new Calculator;
+const calculator = new Calculator();
 
 describe("Calculator tests", () => {
     describe("Tests for a sum function", () => {

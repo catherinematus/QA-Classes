@@ -4,6 +4,8 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   testMatch: ['**/unit/home/jest-test/**/*.spec.ts'],
+  testRunner: 'jest-jasmine2',
+  setupFilesAfterEnv: ['jest-allure/dist/setup'],
   "reporters": [
     "default",
     ["../../node_modules/jest-html-reporter", {

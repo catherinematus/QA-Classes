@@ -1,2 +1,3 @@
-# mocha-ts-unit-testing
-Mocha-Typescript Unit Testing Framework
+# ts-automated-testing
+
+Typescript Automation Testing Framework
