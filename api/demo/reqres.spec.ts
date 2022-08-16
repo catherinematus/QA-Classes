@@ -44,8 +44,8 @@ describe("Test HTTP methods", () => {
         .set("Content-Type", "application/json")
         .send({ email: "sydney@fife" });
     } catch (err: any) {
-      expect(JSON.parse(err.response.text)).toEqual({ error: "Missing password" });
       expect(err.status).toBe(400);
+      expect(JSON.parse(err.response.text)).toEqual({ error: "Missing password" });
     }
   });
 })
