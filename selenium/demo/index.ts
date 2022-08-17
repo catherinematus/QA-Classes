@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { By, until, Builder, Capabilities } from "selenium-webdriver";
-import { baseUrl, defaultWaitingTime } from "./constants";
+import { baseUrl, defaultWaitingTime } from "../constants";
 
 const driver = new Builder()
     .withCapabilities(Capabilities.chrome())

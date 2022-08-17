@@ -15,7 +15,7 @@
     "api-demo": "jest --config='./api/demo/jest.config.js'",
     "api-home": "jest --config='./api/home/jest.config.js'",
     "selenium-demo": "ts-node ./selenium/demo/index.ts",
-    "selenium-demo-test": "mocha --config='./selenium/demo/.mocharc.json'"
+    "selenium-home": "mocha --config='./selenium/home/.mocharc.json'"
   },
   "keywords": [
     "typescript",

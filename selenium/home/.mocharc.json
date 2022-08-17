@@ -1,6 +1,6 @@
 {
   "extension": ["ts"],
-  "spec": ["**/demo/selenium-tests/**/*.spec.ts"],
+  "spec": ["**/home/selenium-tests/**/*.spec.ts"],
   "require": ["ts-node/register"],
   "timeout": 30000
 }

@@ -1,15 +1,14 @@
-import assert from "assert";
 import { expect } from "chai";
 import { mkdirSync, rmSync, writeFile } from "fs";
 import { Context } from "mocha";
-import { By, Builder, Capabilities, until, ThenableWebDriver } from "selenium-webdriver";
-import { baseUrl, defaultWaitingTime } from "../constants";
+import { By, Builder, Capabilities, until, ThenableWebDriver, Key } from "selenium-webdriver";
+import { baseUrl, defaultWaitingTime } from "../../constants";
 
 const driver: ThenableWebDriver = new Builder()
     .withCapabilities(Capabilities.chrome())
     .build();
 
-const screensDir = "selenium/demo/screenshots";
+const screensDir = "selenium/home/screenshots";
 let testsCounter = 1;
 
 describe("Typescript Official Site Tests", () => {
@@ -31,7 +30,7 @@ describe("Typescript Official Site Tests", () => {
     it("Should redirect to the page with correct URL", async function () {
         const addressToFollow = "/docs/handbook/2/classes.html"
         await driver.findElement(By.xpath(`//a[@href="${addressToFollow}"]`)).click();
-        assert.strictEqual(await driver.getCurrentUrl(), `${baseUrl}${addressToFollow}`);
+        await driver.wait(until.urlIs(`${baseUrl}${addressToFollow}`), defaultWaitingTime);
     });
 
     it("Should change text after like being submitted", async function () {
@@ -40,6 +39,19 @@ describe("Typescript Official Site Tests", () => {
 
         const thanksMessage = await driver.findElement(By.id("like-dislike-subnav")).getText();
         expect(thanksMessage).to.be.equal("Thanks for the feedback");
+    });
+
+    it("Should redirect a user to the page that corresponds to the search", async function () {
+        const pageToSearch = "Enums";
+        const searchInput = await driver.findElement(By.id("search-box-top"));
+        await driver.actions()
+            .click(searchInput)
+            .sendKeys(pageToSearch)
+            .pause(defaultWaitingTime)
+            .sendKeys(Key.RETURN)
+            .perform();
+        const pageHeader = await driver.findElement(By.css("#handbook-content h1"));
+        await driver.wait(until.elementTextIs(pageHeader, pageToSearch));
     });
 
     afterEach(async function () {
