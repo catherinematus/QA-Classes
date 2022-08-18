@@ -1,0 +1,23 @@
+{
+  "default": {
+    "paths": ["bdd-cucumber/features/**/*.feature"],
+    "requireModule": ["ts-node/register"],
+    "require": [
+      "bdd-cucumber/src/step_definitions/**/*.ts",
+      "bdd-cucumber/src/support/**/*.ts"
+    ],
+    "format": [
+      "@cucumber/pretty-formatter",
+      "json:bdd-cucumber/reports/report.json"
+    ],
+    "formatOptions": {
+      "colorsEnabled": true,
+      "theme": {
+        "feature keyword": ["magenta", "bold"],
+        "scenario keyword": ["red"],
+        "step text": ["green"],
+        "tag": ["blue"]
+      }
+    }
+  }
+}

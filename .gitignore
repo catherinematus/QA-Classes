@@ -5,3 +5,4 @@ allure*/
 *.html
 *.exe
 **/*/screenshots/
+**/reports/

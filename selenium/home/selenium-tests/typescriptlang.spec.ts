@@ -33,6 +33,11 @@ describe("Typescript Official Site Tests", () => {
         await driver.wait(until.urlIs(`${baseUrl}${addressToFollow}`), defaultWaitingTime);
     });
 
+    it("Should highlight the link in the navigation bar as active", async function () {
+        const classesLink = await driver.findElement(By.xpath("//a[text()='Classes']/.."));
+        expect(await classesLink.getAttribute("class")).to.be.equal("highlight");
+    });
+
     it("Should change text after like being submitted", async function () {
         await driver.navigate().back();
         await driver.findElement(By.css("aside #like-button")).click();
