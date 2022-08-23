@@ -17,12 +17,14 @@
     "selenium-demo": "ts-node ./selenium/demo/index.ts",
     "selenium-home": "mocha --config='./selenium/home/.mocharc.json'",
     "bdd-cucumber-test": "cucumber-js --config=./bdd-cucumber/config/cucumber.json",
-    "bdd-cucumber-report": "ts-node ./bdd-cucumber/config/html.report.config.ts"
+    "bdd-cucumber-report": "ts-node ./bdd-cucumber/config/html.report.config.ts",
+    "patterns": "mocha --config='./patterns/.mocharc.json'"
   },
   "keywords": [
     "typescript",
     "api",
-    "selenium"
+    "selenium",
+    "cucumber"
   ],
   "author": "VladSelikh",
   "license": "ISC",

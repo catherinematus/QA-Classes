@@ -61,8 +61,7 @@ describe("Typescript Official Site Tests", () => {
 
     afterEach(async function () {
         const data = await driver.takeScreenshot();
-        const base64Data = data.replace(/^data:image\/png;base64,/, "");
-        writeFile(`${screensDir}/${testsCounter++}. ${(this as Context).currentTest?.title}.png`, base64Data, 'base64', function (err) {
+        writeFile(`${screensDir}/${testsCounter++}. ${(this as Context).currentTest?.title}.png`, data, 'base64', function (err) {
             if (err) console.log(err.message);
         });
     });

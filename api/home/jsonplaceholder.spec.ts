@@ -29,7 +29,7 @@ describe("Test HTTP methods", () => {
 
       expect(response.status).toBe(200);
       validateSchema(getPostsSchema, response.body);
-      expect(response.body.length).toBe(100);
+      expect(response.body.length).toBe(POSTS_QUANTITY);
     });
 
     test(`Should correctly get post No ${postNo}`, async () => {
