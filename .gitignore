@@ -6,3 +6,4 @@ allure*/
 *.exe
 **/*/screenshots/
 **/reports/
+drivers/

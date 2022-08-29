@@ -2,8 +2,8 @@ import reporter, { Options } from 'cucumber-html-reporter';
 
 const options: Options = {
     theme: 'bootstrap',
-    jsonFile: './bdd-cucumber/reports',
-    output: './bdd-cucumber/reports/html_report.html',
+    jsonFile: './selenium-cucumber/reports',
+    output: './selenium-cucumber/reports/html_report.html',
     reportSuiteAsScenarios: true,
     scenarioTimestamp: true,
     launchReport: true,

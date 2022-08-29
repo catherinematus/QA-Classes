@@ -1,35 +1,41 @@
 import { expect } from "chai";
-import { By, until } from "selenium-webdriver";
-import { generateAlphabeticString } from "../support/helpers";
 import { Given, Then, When } from "@cucumber/cucumber";
+import { generateAlphabeticString } from "../support/helpers";
 import { validLogin, validPassword, baseUrl } from "../support/constants"
-import { welcomePage } from "../pages/home_page";
-import { loginPage } from "../pages/login_page";
-import { driver } from "../support/hooks";
+import { welcomePage } from "../pages/homePage";
+import { loginPage } from "../pages/loginPage";
+import { customDriver } from "../support/customDriver";
+import { SCROLL_DIRECTIONS } from "../support/types";
 
-Given(/^the User opens web page (.+)$/u, async (webAddress) => {
-    await driver.get(webAddress);
-});
-When(/^the User scrolls to navigation links$/u, async () => {
-    await welcomePage.scrollToNavigationLinks();
+Given(/^the User opens web page (.+)$/, async (webAddress) => {
+    await customDriver.openUrl(webAddress);
 });
 
-When(/^the User scrolls to header$/u, async () => {
-    await welcomePage.scrollToHeader();
+When(/^the User scrolls to (navigation links|header)$/, async (elementToScrollTo: SCROLL_DIRECTIONS) => {
+    await welcomePage.scrollTo(elementToScrollTo);
 });
 
-Then(/^the User sees that the text of the link (.+) contains (.+)$/u, async (number, expectedText) => {
+Then(/^the User sees that the text of the link (.+) contains (.+)$/, async (number, expectedText) => {
     const navigationLinks = await welcomePage.getNavigationLinks();
     const linkText = await navigationLinks[number - 1].getText()
     expect(linkText).to.be.deep.equal(expectedText);
 });
 
 When(/^the User clicks on Sign In button$/, async () => {
-    await welcomePage.getSignInButton().click();
+    await (await welcomePage.getSignInButton()).click();
 });
 
-Then(/^the User is redirected to sign-in page$/, async () => {
-    await driver.wait(until.urlContains(`${baseUrl}/login`));
+Then(/^the User is redirected (to|from) sign-in page$/, async (direction: "to" | "from") => {
+    const urlToCompare = `${baseUrl}/login`;
+
+    await customDriver.waitForCondition(async () => {
+        switch (direction) {
+            case "to":
+                return await customDriver.getCurrentUrl() === urlToCompare;
+            case "from":
+                return await customDriver.getCurrentUrl() !== urlToCompare;
+        }
+    });
 });
 
 When(/^the User clicks on Forgot password link$/, async () => {
@@ -53,11 +59,6 @@ When(/^the User logs in with invalid password of (.+) symbols length$/, async (l
 
 When(/^the User logs in with valid credentials$/, async () => {
     await loginPage.performLogin(validLogin, validPassword);
-});
-
-Then(/^the User is redirected from sign-in page$/, async () => {
-    const formElement = await driver.findElements(By.css(`form[action="/session"]`));
-    expect(formElement).to.have.length(0);
 });
 
 Then(/^the User sees invalid credentials error message$/, async () => {

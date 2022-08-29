@@ -1,4 +1,3 @@
-import { WebDriver } from "selenium-webdriver";
 import { PAGES } from "../utils/types";
 import { HandbookPage } from "./handbookPage";
 import { HomePage } from "./homePage";
@@ -7,14 +6,14 @@ export class PageFactory {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     constructor() { }
 
-    static getPage(driver: WebDriver, pageName: PAGES) {
+    static getPage(pageName: PAGES) {
         switch (pageName) {
             case PAGES.HOME:
-                return HomePage.getInstance(driver);
+                return HomePage.getInstance();
             case PAGES.HANDBOOK:
-                return HandbookPage.getInstance(driver);
+                return HandbookPage.getInstance();
             default:
-                return HomePage.getInstance(driver);
+                return HomePage.getInstance();
         }
     }
 }

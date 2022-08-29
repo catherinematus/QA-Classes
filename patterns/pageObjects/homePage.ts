@@ -1,49 +1,31 @@
-import { Key, WebDriver } from "selenium-webdriver";
-import { baseUrl, defaultWaitingTime } from "../utils/constants";
-import { NAVIGATION_ITEMS, SELECTOR_TYPES } from "../utils/types";
+import { baseUrl } from "../utils/constants";
+import { customDriver } from "../utils/customDriver";
 import { BasePage } from "./basePage";
+import { navigationBar, NavigationBar } from "./elements/navigationBar";
 
 export class HomePage extends BasePage {
     protected static instance: HomePage;
 
     protected url: string;
 
-    protected constructor(driver: WebDriver) {
-        super(driver);
+    public navigationBar: NavigationBar;
+
+    protected constructor() {
+        super();
 
         this.url = baseUrl;
+        this.navigationBar = navigationBar;
     }
 
-    static getInstance(driver: WebDriver) {
+    static getInstance() {
         if (!this.instance) {
-            this.instance = new HomePage(driver);
+            this.instance = new HomePage();
         }
 
         return HomePage.instance;
     }
 
     public async visitPage() {
-        await this.driver.get(this.url);
-    }
-
-    public async getNavigationItemByInnerText(item: NAVIGATION_ITEMS) {
-        return await this.driverUtils.findElement(SELECTOR_TYPES.XPATH, `//nav[@role="navigation"]//*[text()="${item}"]`);
-    }
-
-    public async getSearchInput() {
-        return await this.driverUtils.findElement(SELECTOR_TYPES.ID, "search-box-top");
-    }
-
-    public async clickOnNavigationItemByInnerText(item: NAVIGATION_ITEMS) {
-        await (await this.getNavigationItemByInnerText(item)).click();
-    }
-
-    public async searchFor(text: string) {
-        await this.driver.actions()
-            .click(await this.getSearchInput())
-            .sendKeys(text)
-            .pause(defaultWaitingTime)
-            .sendKeys(Key.RETURN)
-            .perform();
+        await customDriver.openUrl(this.url);
     }
 }

@@ -1,15 +1,16 @@
 {
   "default": {
-    "paths": ["bdd-cucumber/features/**/*.feature"],
-    "requireModule": ["ts-node/register"],
+    "paths": ["selenium-cucumber/features/**/*.feature"],
+    "requireModule": ["ts-node/register", "dotenv/config"],
     "require": [
-      "bdd-cucumber/src/step_definitions/**/*.ts",
-      "bdd-cucumber/src/support/**/*.ts"
+      "selenium-cucumber/src/step-definitions/**/*.ts",
+      "selenium-cucumber/src/support/**/*.ts"
     ],
     "format": [
       "@cucumber/pretty-formatter",
-      "json:bdd-cucumber/reports/report.json"
+      "json:selenium-cucumber/reports/report.json"
     ],
+    "tags": "",
     "formatOptions": {
       "colorsEnabled": true,
       "theme": {

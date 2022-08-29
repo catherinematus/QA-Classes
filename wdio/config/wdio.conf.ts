@@ -89,7 +89,7 @@ export const config: Options.Testrunner = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
-            args: ['window-size=1920,1080', '--disable-gpu'],
+            args: ['start-maximized', '--disable-gpu'],
         }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
