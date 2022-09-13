@@ -1,9 +1,8 @@
 import { baseUrl } from "../support/constants";
 import { Element } from "../support/element";
-import { ElementArray } from "../support/elementArray";
 import { BasePage } from "./base_page";
 
-class HomePage extends BasePage {
+class ForgotPasswordPage extends BasePage {
     constructor() {
         super();
 
@@ -17,12 +16,8 @@ class HomePage extends BasePage {
     }
 
     get emailInput() {
-        return new Element("#user_email");
-    }
-
-    get navigationLinks() {
-        return new ElementArray("div.sub-nav-mktg div.flex-auto a");
+        return new Element("#email_field");
     }
 }
 
-export const homePage = new HomePage();
+export const forgotPasswordPage = new ForgotPasswordPage();

@@ -10,10 +10,10 @@ class WelcomePage extends BasePage {
     public scrollTo = async (elementToScrollTo: SCROLL_DIRECTIONS) => {
         switch (elementToScrollTo) {
             case SCROLL_DIRECTIONS.HEADER:
-                await customDriver.scrollToElement(SELECTOR_TYPES.CSS, "div.sub-nav-mktg");
+                await customDriver.scrollToElement(SELECTOR_TYPES.CSS, "//a[@href='/login']");
                 break;
             case SCROLL_DIRECTIONS.NAVIGATION_LINKS:
-                await customDriver.scrollToElement(SELECTOR_TYPES.XPATH, "//a[@href='/login']");
+                await customDriver.scrollToElement(SELECTOR_TYPES.XPATH, "div.sub-nav-mktg");
                 break;
             default:
                 throw new Error("Incorrect item to scroll specified!");

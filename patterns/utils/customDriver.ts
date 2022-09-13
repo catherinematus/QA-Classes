@@ -41,11 +41,11 @@ class CustomDriver {
     }
 
     public async waitForCondition(condition: () => PromiseLike<boolean>, timeout?: number) {
-        await this.driver.wait(condition, timeout ? timeout : defaultWaitingTime * 1000);
+        await this.driver.wait(condition, timeout ? timeout : defaultWaitingTime);
     }
 
     public async pause(secondsToWait: number) {
-        await this.driver.sleep(secondsToWait * 1000);
+        await this.driver.sleep(secondsToWait);
     }
 }
 

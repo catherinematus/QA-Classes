@@ -1,12 +1,10 @@
 import { baseUrl } from "../utils/constants";
 import { customDriver } from "../utils/customDriver";
 import { FEEDBACK_TYPES, HANDBOOK_SIDEBAR_ITEMS, SELECTOR_TYPES } from "../utils/types";
-import { HomePage } from "./homePage";
+import { BasePage } from "./basePage";
 
-export class HandbookPage extends HomePage {
+export class HandbookPage extends BasePage {
     protected static instance: HandbookPage;
-
-    protected url: string;
 
     protected constructor() {
         super();

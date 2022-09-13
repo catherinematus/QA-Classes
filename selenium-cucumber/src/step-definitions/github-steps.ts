@@ -43,7 +43,7 @@ When(/^the User clicks on Forgot password link$/, async () => {
 });
 
 Then(/^the User is on the password reset page$/, async () => {
-    const url = await loginPage.getCurrentUrl;
+    const url = await loginPage.currentUrl;
     expect(url).to.contain(`${baseUrl}/password_reset`);
 });
 

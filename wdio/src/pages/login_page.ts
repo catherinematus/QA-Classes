@@ -1,34 +1,57 @@
+import { baseUrl } from "../support/constants";
+import { Element } from "../support/element";
 import { BasePage } from "./base_page";
 
 class LoginPage extends BasePage {
     constructor() {
         super();
+
+        this.url = `${baseUrl}/login`
+
+        this.pageIdentifier = this.loginInput
+
+        this.inputs = {
+            "Login": this.loginInput,
+            "Password": this.passwordInput
+        }
+
+        this.buttons = {
+            "Submit": this.submitButton
+        }
+
+        this.links = {
+            "Forgot password": this.forgotPasswordLink
+        }
+
+        this.labels = {
+            "Error": this.errorMessage
+        }
     }
 
     get loginInput() {
-        return $(`//*[@name="login"]`);
+        return new Element("//*[@name='login']");
     }
 
     get passwordInput() {
-        return $(`//*[@name="password"]`);
+        return new Element("//*[@name='password']");
     }
 
     get submitButton() {
-        return $("input[type=submit]");
+        return new Element("input[type=submit]");
+    }
+
+    get forgotPasswordLink() {
+        return new Element("//a[text()[contains(.,'Forgot password?')]]");
     }
 
     get errorMessage() {
-        return $(".flash.flash-full.flash-error");
-    }
-
-    public clickForgotPasswordLink = async () => {
-        await (await $(`//a[text()[contains(.,"Forgot password?")]]`)).click();
+        return new Element(".flash.flash-full.flash-error");
     }
 
     public performLogin = async (login: string, password: string) => {
-        await (await this.loginInput).setValue(login);
-        await (await this.passwordInput).setValue(password);
-        await (await this.submitButton).click();
+        await this.loginInput.setValue(login);
+        await this.passwordInput.setValue(password);
+        await this.submitButton.click();
     };
 }
 

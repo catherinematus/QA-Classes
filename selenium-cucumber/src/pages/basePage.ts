@@ -1,11 +1,11 @@
 import { customDriver } from "../support/customDriver";
 
 export class BasePage {
-    get getPageTitle() {
+    getPageTitle() {
         return customDriver.getTitle();
     }
 
-    get getCurrentUrl() {
+    getCurrentUrl() {
         return customDriver.getCurrentUrl();
     }
 }

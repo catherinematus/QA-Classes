@@ -22,7 +22,10 @@
     "wdio-cucumber": "wdio ./wdio/config/wdio.conf.ts",
     "wdio-cucumber-report": "allure generate wdio/allure-results --clean -o wdio/allure-report && allure open ./wdio/allure-report",
     "playwright": "playwright test --config=./playwright/configs/playwright.config.ts",
-    "playwright-report": "playwright show-report playwright/assets/reports"
+    "playwright-report": "playwright show-report playwright/assets/reports",
+    "playwright-allure-report": "allure generate playwright/assets/allure-results --clean -o playwright/assets/allure-report && allure open ./playwright/assets/allure-report",
+    "cy:open": "cypress open --config-file=./cy-e2e/cypress.config.ts",
+    "cy:run": "cypress run --browser chrome --headed --config-file=./cy-e2e/cypress.config.ts"
   },
   "keywords": [
     "typescript",
@@ -52,9 +55,11 @@
     "@wdio/spec-reporter": "^7.23.0",
     "ajv": "^8.11.0",
     "allure-commandline": "^2.18.1",
+    "allure-playwright": "^2.0.0-beta.19",
     "chai": "^4.3.6",
     "chromedriver": "^104.0.0",
     "cucumber-html-reporter": "^5.5.0",
+    "cypress": "^10.7.0",
     "dotenv": "^16.0.1",
     "eslint": "^8.20.0",
     "jest": "^28.1.3",
