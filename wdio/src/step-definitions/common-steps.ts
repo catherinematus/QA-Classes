@@ -35,10 +35,6 @@ When(/^the User clicks on "(.+)" navigation link in the page header of "(.+)" pa
     await PageFactory.getPage(pageName).header.clickNavigationLinkByInnerText(linkText);
 })
 
-When(/^the User hovers on "(.+)" navigation link in the page header of "(.+)" page$/, async (linkText: HEADER_NAVIGATION_ITEMS, pageName: PAGES) => {
-    await PageFactory.getPage(pageName).header.hoverNavigationLinkByInnerText(linkText);
-})
-
 Then(/^the User (doesn't see|sees) "(.+)" drop down in the page header of "(.+)" page$/, async (elementVisibility: "doesn't see" | "sees", dropDownType: DropDown, pageName: PAGES) => {
     await PageFactory.getPage(pageName).header.getDropDown(dropDownType).waitForDisplayed(elementVisibility === "doesn't see");
 })

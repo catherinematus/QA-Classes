@@ -14,12 +14,8 @@ export class Header {
         await this.getNavigationLinkByInnerText(text).click();
     }
 
-    public async hoverNavigationLinkByInnerText(text: HEADER_NAVIGATION_ITEMS) {
-        await this.getNavigationLinkByInnerText(text).hover();
-    }
-
     public getDropDown(dropDownType: DropDown) {
-        return new Element(`//header//nav/ul//a[@href="/${dropDownType.toLowerCase()}"]`);
+        return new Element(`//header//nav/ul//*[contains(text(), "${dropDownType}")]/..//ul`);
     }
 }
 

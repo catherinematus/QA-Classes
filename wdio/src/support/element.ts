@@ -24,9 +24,4 @@ export class Element {
         await this.waitForDisplayed();
         return await (await this.element).getText();
     }
-
-    public async hover() {
-        await this.waitForDisplayed();
-        await (await this.element).moveTo();
-    }
 }

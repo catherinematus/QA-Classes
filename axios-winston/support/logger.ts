@@ -23,7 +23,7 @@ const logger = createLogger({
             eol: '\r\n',
         }),
         new transports.File({
-            dirname: './logging/logs',
+            dirname: './axios-winston/logs',
             filename: `api-tests.log`,
             level: 'debug',
             options: { flags: 'w' }

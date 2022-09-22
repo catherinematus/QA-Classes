@@ -15,10 +15,14 @@ pipeline {
                 bat 'npm install'
             }
         }
-        stage('Running Selenium + Cucumber Tests...') {
+        stage('Running Axios API Tests...') {
             steps {
-                bat 'mkdir selenium-cucumber\\reports'
-                bat 'npm run selenium-cucumber-test'
+                bat 'npm run api-logging'
+            }
+        }
+        stage('Running Wdio + Cucumber Tests...') {
+            steps {
+                bat 'npm run wdio-cucumber'
             }
         }
         stage('Running Cypress Tests...') {
@@ -30,9 +34,8 @@ pipeline {
 
     post {
             always {
-                bat 'npm run selenium-cucumber-report'
-                archiveArtifacts artifacts: 'selenium-cucumber/reports/*.html', fingerprint: true, onlyIfSuccessful: false
-                archiveArtifacts artifacts: 'cy-e2e/cypress/assets/videos/*.mp4', fingerprint: true
+                archiveArtifacts artifacts: 'axios-winston/report/**/*.*', fingerprint: true
+                archiveArtifacts artifacts: 'cy-e2e/cypress/assets/html-report/**/*.*', fingerprint: true
                 cleanWs()
             }
     }

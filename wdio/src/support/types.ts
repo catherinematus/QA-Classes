@@ -13,11 +13,9 @@ export enum ELEMENT_TYPES {
 
 export enum HEADER_NAVIGATION_ITEMS {
     PRODUCT = "Product",
-    TEAM = "Team",
-    ENTERPRISE = "Enterprise",
-    EXPLORE = "Explore",
-    MARKETPLACE = "Marketplace",
+    SOLUTIONS = "Solutions",
+    OPEN_SOURCE = "Open Source",
     PRICING = "Pricing"
 }
 
-export type DropDown = "Features" | "Explore" | "Pricing"
+export type DropDown = "Product" | "Solutions" | "Open Source"

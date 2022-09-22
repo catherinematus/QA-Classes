@@ -1,0 +1,12 @@
+{
+  "extension": ["ts"],
+  "spec": ["**/axios-winston/tests/**/*.spec.ts"],
+  "require": ["ts-node/register"],
+  "reporter": "mochawesome",
+  "reporter-option": [
+    "reportTitle=Jsonplaceholder API Tests",
+    "reportFilename=report",
+    "reportDir=axios-winston/report"
+  ],
+  "timeout": 5000
+}

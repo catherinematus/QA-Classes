@@ -5,8 +5,8 @@ allure*/
 *.html
 *.exe
 **/*/screenshots/
-**/reports/
+**/*/report/
 drivers/
+java/
 **/*/assets/
 **/*/logs/
-java/

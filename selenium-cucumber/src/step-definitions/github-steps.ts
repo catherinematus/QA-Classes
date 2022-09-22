@@ -8,7 +8,6 @@ import { customDriver } from "../support/customDriver";
 import { SCROLL_DIRECTIONS } from "../support/types";
 
 Given(/^the User opens web page (.+)$/, async (webAddress) => {
-    console.log(`Running tests in ${process.env.BROWSER} browser...`);
     await customDriver.openUrl(webAddress);
 });
 
