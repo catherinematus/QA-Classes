@@ -1,0 +1,14 @@
+{
+  "$id": "post.schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": { "type": "number", "maximum": 100 },
+      "userId": { "type": "number", "maximum": 10 },
+      "title": { "type": "string" },
+      "body": { "type": "string" }
+    },
+    "required": ["id", "userId", "title", "body"]
+  }
+}

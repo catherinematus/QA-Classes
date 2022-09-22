@@ -37,7 +37,7 @@ export class HandbookPage extends BasePage {
             .click();
     }
 
-    public async waitTillPageHeaderHasText(headerText: string) {
+    public waitTillPageHeaderHasText(headerText: string) {
         this.getHeaderElement().should("have.text", headerText);
     }
 }

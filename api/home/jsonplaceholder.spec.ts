@@ -4,6 +4,7 @@ import { Post } from "./types";
 import * as getPostsSchema from "./schema/get-posts.schema.json";
 import * as getAPostSchema from "./schema/get-a-post.schema.json"
 import { validateSchema } from "./helpers";
+import { expect } from "@jest/globals";
 
 const baseUrl = "https://jsonplaceholder.typicode.com";
 const POSTS_QUANTITY = 100;
@@ -12,9 +13,9 @@ const USERS_QUANTITY = 10;
 const postCreated: Post = {
   title: 'Marilyn Manson',
   body: 'Sweet dreams are made of this',
-  userId: Math.floor(Math.random() * USERS_QUANTITY)
+  userId: Math.floor(Math.random() * USERS_QUANTITY) + 1
 }
-const postNo = Math.floor(Math.random() * POSTS_QUANTITY);
+const postNo = Math.floor(Math.random() * POSTS_QUANTITY) + 1;
 
 let response: Response;
 

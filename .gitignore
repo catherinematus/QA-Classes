@@ -8,3 +8,5 @@ allure*/
 **/reports/
 drivers/
 **/*/assets/
+**/*/logs/
+java/

@@ -13,7 +13,7 @@ class WelcomePage extends BasePage {
                 await customDriver.scrollToElement(SELECTOR_TYPES.CSS, "//a[@href='/login']");
                 break;
             case SCROLL_DIRECTIONS.NAVIGATION_LINKS:
-                await customDriver.scrollToElement(SELECTOR_TYPES.XPATH, "div.sub-nav-mktg");
+                await customDriver.scrollToElement(SELECTOR_TYPES.XPATH, "div.sub-nav-mktg-links");
                 break;
             default:
                 throw new Error("Incorrect item to scroll specified!");

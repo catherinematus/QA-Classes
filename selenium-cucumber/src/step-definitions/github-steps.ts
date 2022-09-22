@@ -8,6 +8,7 @@ import { customDriver } from "../support/customDriver";
 import { SCROLL_DIRECTIONS } from "../support/types";
 
 Given(/^the User opens web page (.+)$/, async (webAddress) => {
+    console.log(`Running tests in ${process.env.BROWSER} browser...`);
     await customDriver.openUrl(webAddress);
 });
 
@@ -43,7 +44,7 @@ When(/^the User clicks on Forgot password link$/, async () => {
 });
 
 Then(/^the User is on the password reset page$/, async () => {
-    const url = await loginPage.currentUrl;
+    const url = await loginPage.getCurrentUrl();
     expect(url).to.contain(`${baseUrl}/password_reset`);
 });
 

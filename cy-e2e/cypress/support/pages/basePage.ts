@@ -13,11 +13,11 @@ export class BasePage {
         return cy.title();
     }
 
-    public async waitForTitleToInclude(title: string) {
+    public waitForTitleToInclude(title: string) {
         this.getPageTitle().should("include", title);
     }
 
-    public async visitPage() {
+    public visitPage() {
         cy.visit(this.url);
     }
 }

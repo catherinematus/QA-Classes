@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 /// <reference types="cypress" />
 
-Cypress.Commands.add('getElementByPartialClassName', (cssSelector: string, classNameText: string) => {
-    return cy.get(`${cssSelector}[class*='${classNameText}']`);
-})
+import "./commands";
+import '@shelex/cypress-allure-plugin';
 
 declare global {
     namespace Cypress {
@@ -12,5 +11,3 @@ declare global {
         }
     }
 }
-
-export { };

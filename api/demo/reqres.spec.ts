@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import superagent, { Response } from "superagent";
+import { expect } from "@jest/globals";
 
 const baseUrl = "https://reqres.in/api";
 let response: Response;

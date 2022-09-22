@@ -1,0 +1,7 @@
+{
+  "extension": ["ts"],
+  "spec": ["**/logging/tests/**/*.spec.ts"],
+  "require": ["ts-node/register"],
+  "reporter": "spec",
+  "timeout": 5000
+}
