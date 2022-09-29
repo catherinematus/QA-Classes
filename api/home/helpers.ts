@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Ajv from "ajv";
+import { expect } from "@jest/globals";
+
 const ajv = new Ajv({ allErrors: true });
 
 export function validateSchema(schema: any, data: any) {

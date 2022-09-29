@@ -5,11 +5,12 @@ module.exports = {
   testEnvironment: 'node',
   testMatch: ['**/unit/home/jest-test/**/*.spec.ts'],
   testRunner: 'jest-jasmine2',
-  setupFilesAfterEnv: ['jest-allure/dist/setup'],
+  setupFilesAfterEnv: ['<rootDir>/jestSetup.ts'],
   "reporters": [
     "default",
     ["../../node_modules/jest-html-reporter", {
-      "pageTitle": "Test Report"
+      "pageTitle": "Test Report",
+      "outputPath": "unit/home/assets/jest/test-report.html"
     }]
   ]
 };

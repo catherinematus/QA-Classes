@@ -2,5 +2,6 @@
   "extension": ["ts"],
   "spec": ["**/home/mocha-test/**/*.spec.ts"],
   "require": ["ts-node/register"],
-  "reporter": "mocha-allure-reporter"
+  "reporter": "mocha-allure-reporter",
+  "reporter-option": ["targetDir=unit/home/assets/mocha/allure-results"]
 }

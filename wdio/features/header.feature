@@ -5,8 +5,8 @@ Feature: Github Header Links
     Background:
         Given the User opens "Home" page via url
 
-    @hover-on-links
-    Scenario: Hover on navigation links
+    @links-click
+    Scenario: Navigation links click
         Then the User doesn't see "Product" drop down in the page header of "Home" page
         Then the User doesn't see "Solutions" drop down in the page header of "Home" page
         Then the User doesn't see "Open Source" drop down in the page header of "Home" page

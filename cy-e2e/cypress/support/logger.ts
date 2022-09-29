@@ -1,5 +1,4 @@
 import log4js from 'log4js';
-import { assetsFolder } from './constants/constants';
 const dateFormat = '%d{[dd/MM/yyyy] [hh:mm:ss]} [%p] - %m';
 
 log4js.configure({

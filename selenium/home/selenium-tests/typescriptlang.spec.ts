@@ -52,7 +52,7 @@ describe("Typescript Official Site Tests", () => {
         await driver.actions()
             .click(searchInput)
             .sendKeys(pageToSearch)
-            .pause(defaultWaitingTime)
+            .pause(defaultWaitingTime * 2)
             .sendKeys(Key.RETURN)
             .perform();
         const pageHeader = await driver.findElement(By.css("#handbook-content h1"));

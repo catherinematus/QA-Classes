@@ -24,21 +24,21 @@ describe("Calculator tests", () => {
         });
     })
 
-    describe("Tests for a substract function", () => {
-        it("Should substract two positive numbers correctly", () => {
-            assert.deepStrictEqual(calculator.substract(26, 18), 8, ASSERTION_ERROR_MESSAGE);
+    describe("Tests for a subtract function", () => {
+        it("Should subtract two positive numbers correctly", () => {
+            assert.deepStrictEqual(calculator.subtract(26, 18), 8, ASSERTION_ERROR_MESSAGE);
         });
 
-        it("Should substract two negative numbers correctly", () => {
-            assert.deepStrictEqual(calculator.substract(-30, -150), 120, ASSERTION_ERROR_MESSAGE);
+        it("Should subtract two negative numbers correctly", () => {
+            assert.deepStrictEqual(calculator.subtract(-30, -150), 120, ASSERTION_ERROR_MESSAGE);
         });
 
-        it("Should substract positive and negative numbers correctly", () => {
-            assert.deepStrictEqual(calculator.substract(64, -9), 73, ASSERTION_ERROR_MESSAGE);
+        it("Should subtract positive and negative numbers correctly", () => {
+            assert.deepStrictEqual(calculator.subtract(64, -9), 73, ASSERTION_ERROR_MESSAGE);
         });
 
-        it("Should substract two float numbers correctly", () => {
-            assert.deepStrictEqual(calculator.substract(18.3, 9.4), 8.9, ASSERTION_ERROR_MESSAGE);
+        it("Should subtract two float numbers correctly", () => {
+            assert.deepStrictEqual(calculator.subtract(18.3, 9.4), 8.9, ASSERTION_ERROR_MESSAGE);
         });
     })
 

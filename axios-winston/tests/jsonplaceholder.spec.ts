@@ -16,7 +16,7 @@ const postCreated: Post = {
 }
 const postNo = Math.floor(Math.random() * POSTS_QUANTITY) + 1;
 
-let response;
+let response: any;
 
 describe("Test HTTP methods", () => {
   describe(`${METHODS.GET} method`, () => {

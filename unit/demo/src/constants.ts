@@ -1,0 +1,1 @@
+export const EMPTY_ARRAY_ERROR_MESSAGE = "Please provide an array of length > 0";

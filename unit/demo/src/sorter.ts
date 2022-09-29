@@ -1,3 +1,5 @@
+import { EMPTY_ARRAY_ERROR_MESSAGE } from "./constants";
+
 export class Sorter {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() { }
@@ -11,7 +13,7 @@ export class Sorter {
       return array.filter((elem, index) => {
         return array.indexOf(elem) === index;
       });
-    } else throw Error("Please provide an array of length > 0");
+    } else throw new Error(EMPTY_ARRAY_ERROR_MESSAGE);
   }
 
   public stringsHandler(array: Array<string>) {
@@ -23,6 +25,6 @@ export class Sorter {
       return array.filter((elem, index) => {
         return array.indexOf(elem) === index;
       });
-    } else throw Error("Please provide an array of length > 0");
+    } else throw new Error(EMPTY_ARRAY_ERROR_MESSAGE);
   }
 }

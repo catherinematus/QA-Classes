@@ -1,19 +1,20 @@
 export class Calculator {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     constructor() { }
-    public sum(number1: number, number2: number): number {
-        return number1 + number2
+
+    public sum(firstArg: number, secondArg: number): number {
+        return firstArg + secondArg;
     }
 
-    public substract(number1: number, number2: number): number {
-        return number1 - number2;
+    public subtract(firstArg: number, secondArg: number): number {
+        return firstArg - secondArg;
     }
 
-    public multiply(number1: number, number2: number): number {
-        return number1 * number2;
+    public multiply(firstArg: number, secondArg: number): number {
+        return firstArg * secondArg;
     }
 
-    public divide(number1: number, number2: number): number {
-        return number1 / number2;
+    public divide(firstArg: number, secondArg: number): number {
+        return firstArg / secondArg;
     }
 }

@@ -14,7 +14,8 @@ describe("Calculator tests", () => {
   describe("Tests for a sum function", () => {
     sumMap.forEach((parameters, testCase) => {
       it(testCase, () => {
-        assert.deepStrictEqual(calculator.sum(parameters[0], parameters[1]), parameters[2], ASSERTION_ERROR_MESSAGE);
+        const [firstArg, secondArg, expResult] = parameters;
+        assert.deepStrictEqual(calculator.sum(firstArg, secondArg), expResult, ASSERTION_ERROR_MESSAGE);
       });
     });
   })

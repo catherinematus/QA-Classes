@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import assert from "assert";
 import { expect } from "chai";
+import { EMPTY_ARRAY_ERROR_MESSAGE } from "../src/constants";
 import { Sorter } from "../src/sorter";
 
 let sorter: any = null;
@@ -8,7 +10,7 @@ const SORTING_ERROR_MESSAGE = "Array is sorted incorrectly!";
 
 describe("Number sorter tests", () => {
   before(() => {
-    sorter = new Sorter;
+    sorter = new Sorter();
   });
 
   it("Should correctly sort positive numbers", () => {
@@ -23,8 +25,8 @@ describe("Number sorter tests", () => {
     assert.deepEqual(sorter.numbersHandler([5, -99, 0]), [-99, 0, 5], SORTING_ERROR_MESSAGE)
   });
 
-  it("Should correctly handle empty array", () => {
-    assert.throws(() => sorter.numbersHandler([]), Error("Please provide an array of length > 0"), "Error messages are not the same!")
+  it("Should correctly handle an empty array", () => {
+    assert.throws(() => sorter.numbersHandler([]), Error(EMPTY_ARRAY_ERROR_MESSAGE), "Error messages are not the same!")
   });
 
   it("Should delete duplicates from the sorted array", () => {
@@ -38,13 +40,11 @@ describe("Number sorter tests", () => {
 
 describe("Strings sorter tests", () => {
   before(() => {
-    sorter = new Sorter;
+    sorter = new Sorter();
   });
 
   it("Should sort strings alphabetically", () => {
-    const result = sorter.stringsHandler(["abc", "cba", "block"]);
-    expect(result).to.have.lengthOf(3);
-    expect(result).to.be.deep.equal(["abc", "block", "cba"], SORTING_ERROR_MESSAGE);
+    expect(sorter.stringsHandler(["abc", "cba", "block"])).to.be.deep.equal(["abc", "block", "cba"], SORTING_ERROR_MESSAGE);
   });
 
   it("Should sort numeric strings alphabetically", () => {
@@ -57,6 +57,10 @@ describe("Strings sorter tests", () => {
 
   it("Should sort negative numeric strings alphabetically", () => {
     expect(sorter.stringsHandler(["-10", "1", "0"])).to.be.deep.equal(["-10", "0", "1"], SORTING_ERROR_MESSAGE);
+  });
+
+  it("Should correctly handle an empty array", () => {
+    assert.throws(() => sorter.stringsHandler([]), Error(EMPTY_ARRAY_ERROR_MESSAGE), "Error messages are not the same!")
   });
 
   it("Should delete duplicates in the sorted array", () => {
