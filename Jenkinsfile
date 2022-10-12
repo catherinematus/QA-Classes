@@ -21,6 +21,8 @@ pipeline {
     stages {
         stage('Initiating repo...') {
             steps {
+                bat 'npm install -g npm-check-updates'
+                bat 'ncu -u'
                 bat 'npm install'
             }
         }
